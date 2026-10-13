@@ -2882,9 +2882,10 @@ img {
     }
 
     #countdown {
-        order: 5;
+        order: 6;
         gap: 8px;
-        margin: 0 0 14px;
+        /* Keep the couple and boat clear before the quote and button. */
+        margin: 0 0 clamp(210px, 32vh, 300px);
     }
 
     .countdown-container {
@@ -2911,24 +2912,27 @@ img {
     }
 
     .hero-details {
-        order: 6;
+        order: 5;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         gap: 14px;
-        padding: 8px 18px;
-        border-radius: 30px;
-        background: rgba(10, 29, 55, 0.5);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(212, 175, 55, 0.35);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        margin-bottom: clamp(210px, 32vh, 300px);
+        width: 100%;
+        max-width: 460px;
+        padding: 0;
+        margin: 0 0 12px;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .detail-item {
         flex-direction: column;
         align-items: center;
+        flex: 1;
+        min-width: 0;
     }
 
     .detail-lbl {
@@ -2938,9 +2942,10 @@ img {
     }
 
     .detail-val {
-        font-size: 0.88rem;
+        font-size: clamp(0.7rem, 3.4vw, 0.88rem);
         letter-spacing: 0.5px;
-        white-space: nowrap;
+        line-height: 1.25;
+        white-space: normal;
     }
 
     .detail-divider {
@@ -2974,8 +2979,7 @@ img {
         .hero-details {
             flex-direction: column;
             gap: 6px;
-            border-radius: 16px;
-            padding: 8px 12px;
+            margin-bottom: 12px;
         }
 
         .detail-divider {
