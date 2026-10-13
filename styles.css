@@ -2825,8 +2825,9 @@ img {
 
     .hero-section {
         background-attachment: scroll;
-        background-size: auto 100%;
-        background-position: center;
+        /* Keep the couple lower in the frame, away from the countdown row. */
+        background-size: auto 108%;
+        background-position: center top;
         padding: 90px 16px 50px;
     }
 
@@ -2848,7 +2849,7 @@ img {
 
     #countdown {
         gap: 8px;
-        margin: 4px 0 24px;
+        margin: -32px 0 20px;
     }
 
     .countdown-box {
@@ -2867,6 +2868,7 @@ img {
     .hero-details {
         flex-direction: column;
         gap: 15px;
+        margin-bottom: 12px;
     }
 
     .detail-divider {
