@@ -65,6 +65,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!viewport || !leavesContainer) return;
 
+        // Add four extra photo leaves before the closing page. Add images as
+        // assets/couple-gallery/photo-8.jpg through photo-11.jpg.
+        const closingLeaf = leavesContainer.querySelector('.leaf-closing');
+        if (closingLeaf) {
+            for (let photoNumber = 8; photoNumber <= 11; photoNumber++) {
+                const leaf = document.createElement('div');
+                const leafIndex = photoNumber;
+                leaf.className = 'book-leaf leaf-photo';
+                leaf.dataset.leafIndex = String(leafIndex);
+                leaf.id = `leaf-${leafIndex}`;
+                leaf.innerHTML = `
+                    <div class="leaf-face leaf-front photo-page-front">
+                        <div class="portrait-photo-frame">
+                            <img src="assets/couple-gallery/photo-${photoNumber}.jpg" alt="Christian and Lovely, photo ${photoNumber}" loading="lazy" class="portrait-photo" draggable="false">
+                            <span class="gallery-placeholder">Add photo ${photoNumber}</span>
+                            <div class="photo-bottom-caption">
+                                <span class="caption-names">Christian &amp; Lovely</span>
+                                <span class="caption-pill">${photoNumber} / 11</span>
+                            </div>
+                            <div class="page-curl-corner" aria-hidden="true"></div>
+                        </div>
+                        <div class="page-shine-overlay" aria-hidden="true"></div>
+                        <div class="page-shade-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="leaf-face leaf-back photo-page-back">
+                        <div class="portrait-paper-reverse"><div class="watermark-crest">C &amp; L</div></div>
+                        <div class="page-shine-overlay" aria-hidden="true"></div>
+                        <div class="page-shade-overlay" aria-hidden="true"></div>
+                    </div>`;
+                leavesContainer.insertBefore(leaf, closingLeaf);
+            }
+        }
+
+        // Update the existing seven captions to reflect the expanded album.
+        leavesContainer.querySelectorAll('.leaf-photo .caption-pill').forEach((caption, idx) => {
+            caption.textContent = `${idx + 1} / 11`;
+        });
+
         const leaves = Array.from(leavesContainer.querySelectorAll('.book-leaf'));
         const totalLeaves = leaves.length;
         let currentLeaf = 0;

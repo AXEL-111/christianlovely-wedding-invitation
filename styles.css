@@ -2082,7 +2082,7 @@ img {
 }
 
 /* ========================================================
-   PHOTO PAGES (Leaves 1 to 7 Front) - Full Portrait Frame
+   PHOTO PAGES (Leaves 1 to 11 Front) - Full Portrait Frame
    ======================================================== */
 .photo-page-front {
     position: relative;
@@ -2173,7 +2173,7 @@ img {
 }
 
 /* ========================================================
-   PHOTO PAGE REVERSE (Leaves 1 to 7 Back) - Soft Bluish Tone
+   PHOTO PAGE REVERSE (Leaves 1 to 11 Back) - Soft Bluish Tone
    ======================================================== */
 .portrait-paper-reverse {
     position: relative;
@@ -2359,7 +2359,6 @@ img {
 /* Fade section backgrounds into the exact color used by the next section. */
 .details-section::after,
 .dress-code-section::after,
-.accommodations-section::after,
 .couple-gallery-section::after,
 .gift-guide-section::after {
     content: '';
@@ -2375,10 +2374,10 @@ img {
 }
 
 .dress-code-section::after {
-    background: linear-gradient(180deg, transparent 0%, #102a4e 100%);
+    height: 260px;
+    background: linear-gradient(180deg, transparent 0%, rgba(5, 15, 30, 0.55) 58%, #050f1e 100%);
 }
 
-.accommodations-section::after,
 .couple-gallery-section::after,
 .gift-guide-section::after {
     background: linear-gradient(180deg, transparent 0%, #050f1e 100%);
@@ -2685,13 +2684,8 @@ img {
     transform: translate(0, 0);
 }
 
-.details-grid .detail-card:nth-child(2),
-.accommodations-grid .accommodation-card:nth-child(2) {
+.details-grid .detail-card:nth-child(2) {
     transition-delay: 120ms;
-}
-
-.accommodations-grid .accommodation-card:nth-child(3) {
-    transition-delay: 240ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2825,59 +2819,174 @@ img {
 
     .hero-section {
         background-attachment: scroll;
-        /* Keep the couple lower in the frame, away from the countdown row. */
-        background-size: auto 108%;
+        background-size: cover;
         background-position: center top;
-        padding: 90px 16px 50px;
+        padding: 85px 16px 45px;
+        min-height: max(100vh, 720px);
+        align-items: flex-start;
     }
 
-    .hero-title {
-        font-size: 3.2rem;
+    .hero-bg-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(10, 29, 55, 0.48) 0%,
+            rgba(10, 29, 55, 0.20) 35%,
+            rgba(5, 15, 30, 0.08) 55%,
+            rgba(5, 15, 30, 0.12) 75%,
+            rgba(5, 15, 30, 0.75) 92%,
+            #050f1e 100%
+        );
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-story-title {
-        font-size: 2.2rem;
+        order: 1;
+        font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+        margin-bottom: 2px;
     }
 
     .hero-story-subtitle {
-        font-size: 0.95rem;
+        order: 2;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        max-width: 320px;
+        line-height: 1.4;
+    }
+
+    .hero-title {
+        order: 3;
+        font-size: clamp(2.3rem, 7.5vw, 2.9rem);
+        margin-bottom: 10px;
+        line-height: 1.08;
+    }
+
+    .hero-ampersand {
+        font-size: 0.58em;
+        margin: 0.02em 0;
     }
 
     .hero-announce {
-        font-size: 0.88rem;
+        order: 4;
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+        max-width: 310px;
+        line-height: 1.45;
     }
 
     #countdown {
+        order: 5;
         gap: 8px;
-        margin: -32px 0 20px;
+        margin: 0 0 14px;
+    }
+
+    .countdown-container {
+        gap: 8px;
     }
 
     .countdown-box {
-        width: 60px;
-        height: 60px;
+        width: 54px;
+        height: 54px;
+        background: rgba(10, 29, 55, 0.45);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(212, 175, 55, 0.45);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
     .countdown-num {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
     .countdown-label {
         font-size: 0.5rem;
+        letter-spacing: 1px;
     }
 
     .hero-details {
+        order: 6;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 8px 18px;
+        border-radius: 30px;
+        background: rgba(10, 29, 55, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin-bottom: clamp(210px, 32vh, 300px);
+    }
+
+    .detail-item {
         flex-direction: column;
-        gap: 15px;
-        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .detail-lbl {
+        font-size: 0.58rem;
+        letter-spacing: 2px;
+        margin-bottom: 2px;
+    }
+
+    .detail-val {
+        font-size: 0.88rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
     }
 
     .detail-divider {
-        width: 60px;
-        height: 1px;
+        width: 1px;
+        height: 24px;
+        background-color: rgba(212, 175, 55, 0.4);
     }
 
-    .countdown-container {
-        gap: 10px;
+    .hero-ornament {
+        order: 7;
+        margin: 0 0 6px;
+    }
+
+    .hero-quote {
+        order: 8;
+        font-size: 1.05rem;
+        max-width: 320px;
+        margin-bottom: 14px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+    }
+
+    .hero-save-date {
+        order: 9;
+        padding: 12px 30px;
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 350px) {
+        .hero-details {
+            flex-direction: column;
+            gap: 6px;
+            border-radius: 16px;
+            padding: 8px 12px;
+        }
+
+        .detail-divider {
+            width: 40px;
+            height: 1px;
+        }
+
+        .countdown-box {
+            width: 48px;
+            height: 48px;
+        }
     }
 
     .section-header .title {
@@ -2976,7 +3085,7 @@ img {
 /* Dress Code Section */
 .dress-code-section {
     padding: 110px 0;
-    background: linear-gradient(180deg, #050f1e 0%, rgba(10, 29, 55, 0.92) 50%, #102a4e 100%);
+    background: linear-gradient(180deg, #050f1e 0%, rgba(10, 29, 55, 0.92) 50%, #050f1e 100%);
     position: relative;
     overflow: hidden;
 }
@@ -3190,100 +3299,9 @@ img {
     transform: scale(1.1);
 }
 
-/* Accommodations Section */
-.accommodations-section {
-    padding: 110px 0;
-    background: linear-gradient(180deg, #102a4e 0%, rgba(10, 29, 55, 0.95) 55%, #050f1e 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.accommodations-section>.container {
-    position: relative;
-    z-index: 2;
-}
-
-.accommodations-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.accommodation-card {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    border: 1px solid rgba(197, 160, 89, 0.35);
-    border-radius: 14px;
-}
-
-.accommodation-img {
-    height: 180px;
-    width: 100%;
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.hotel-icon-bg {
-    width: 60px;
-    height: 60px;
-    color: rgba(255, 255, 255, 0.25);
-    stroke-width: 1.5;
-}
-
-.accommodation-details {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.accommodation-details h4 {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    margin-bottom: 8px;
-}
-
-.accommodation-details .distance {
-    font-size: 0.8rem;
-    color: var(--color-accent);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 500;
-}
-
-.accommodation-details .distance svg {
-    width: 14px;
-    height: 14px;
-}
-
-.accommodation-details .hotel-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
 /* Mobile Responsive Adjustments for new sections */
 @media (max-width: 768px) {
     .dress-code-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .accommodations-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
@@ -3296,9 +3314,6 @@ img {
         margin-top: 20px;
     }
 
-    .accommodation-img {
-        height: 150px;
-    }
 }
 
 
