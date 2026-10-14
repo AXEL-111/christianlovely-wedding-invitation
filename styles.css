@@ -2885,7 +2885,7 @@ img {
         order: 6;
         gap: 8px;
         /* Keep the couple and boat clear before the quote and button. */
-        margin: 0 0 clamp(250px, 36vh, 340px);
+        margin: 0 0 clamp(320px, 42vh, 420px);
     }
 
     .countdown-container {
