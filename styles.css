@@ -1725,9 +1725,17 @@ img {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.spine-rib:nth-child(1) { top: 20%; }
-.spine-rib:nth-child(2) { top: 50%; }
-.spine-rib:nth-child(3) { top: 80%; }
+.spine-rib:nth-child(1) {
+    top: 20%;
+}
+
+.spine-rib:nth-child(2) {
+    top: 50%;
+}
+
+.spine-rib:nth-child(3) {
+    top: 80%;
+}
 
 /* Gilded Stack Edge (Depth on Right & Bottom) */
 .book-gilded-edge {
@@ -1890,10 +1898,28 @@ img {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.cover-filigree.top-left { top: 5px; left: 5px; }
-.cover-filigree.top-right { top: 5px; right: 5px; transform: scaleX(-1); }
-.cover-filigree.bottom-left { bottom: 5px; left: 5px; transform: scaleY(-1); }
-.cover-filigree.bottom-right { bottom: 5px; right: 5px; transform: scale(-1, -1); }
+.cover-filigree.top-left {
+    top: 5px;
+    left: 5px;
+}
+
+.cover-filigree.top-right {
+    top: 5px;
+    right: 5px;
+    transform: scaleX(-1);
+}
+
+.cover-filigree.bottom-left {
+    bottom: 5px;
+    left: 5px;
+    transform: scaleY(-1);
+}
+
+.cover-filigree.bottom-right {
+    bottom: 5px;
+    right: 5px;
+    transform: scale(-1, -1);
+}
 
 .cover-header-tag {
     display: flex;
@@ -2827,15 +2853,13 @@ img {
     }
 
     .hero-bg-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(10, 29, 55, 0.48) 0%,
-            rgba(10, 29, 55, 0.20) 35%,
-            rgba(5, 15, 30, 0.08) 55%,
-            rgba(5, 15, 30, 0.12) 75%,
-            rgba(5, 15, 30, 0.75) 92%,
-            #050f1e 100%
-        );
+        background: linear-gradient(to bottom,
+                rgba(10, 29, 55, 0.48) 0%,
+                rgba(10, 29, 55, 0.20) 35%,
+                rgba(5, 15, 30, 0.08) 55%,
+                rgba(5, 15, 30, 0.12) 75%,
+                rgba(5, 15, 30, 0.75) 92%,
+                #050f1e 100%);
     }
 
     .hero-content {
@@ -2848,21 +2872,21 @@ img {
 
     .hero-story-title {
         order: 1;
-        font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+        font-size: clamp(1.85rem, 6.2vw, 2.4rem);
         margin-bottom: 2px;
     }
 
     .hero-story-subtitle {
         order: 2;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
         margin-bottom: 8px;
-        max-width: 320px;
+        max-width: 340px;
         line-height: 1.4;
     }
 
     .hero-title {
         order: 3;
-        font-size: clamp(2.3rem, 7.5vw, 2.9rem);
+        font-size: clamp(2.6rem, 8.4vw, 3.25rem);
         margin-bottom: 10px;
         line-height: 1.08;
     }
@@ -2874,7 +2898,7 @@ img {
 
     .hero-announce {
         order: 4;
-        font-size: 0.78rem;
+        font-size: 0.86rem;
         letter-spacing: 1.5px;
         margin-bottom: 14px;
         max-width: 310px;
@@ -2885,7 +2909,7 @@ img {
         order: 6;
         gap: 8px;
         /* Keep the couple and boat clear before the quote and button. */
-        margin: 0 0 clamp(320px, 42vh, 420px);
+        margin: 0 0 clamp(360px, 46vh, 480px);
     }
 
     .countdown-container {
@@ -2893,8 +2917,8 @@ img {
     }
 
     .countdown-box {
-        width: 54px;
-        height: 54px;
+        width: 58px;
+        height: 58px;
         background: rgba(10, 29, 55, 0.45);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
@@ -2903,11 +2927,11 @@ img {
     }
 
     .countdown-num {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
     }
 
     .countdown-label {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         letter-spacing: 1px;
     }
 
@@ -2936,13 +2960,13 @@ img {
     }
 
     .detail-lbl {
-        font-size: 0.58rem;
+        font-size: 0.65rem;
         letter-spacing: 2px;
         margin-bottom: 2px;
     }
 
     .detail-val {
-        font-size: clamp(0.7rem, 3.4vw, 0.88rem);
+        font-size: clamp(0.74rem, 3.7vw, 0.96rem);
         letter-spacing: 0.5px;
         line-height: 1.25;
         white-space: normal;
@@ -2955,9 +2979,7 @@ img {
     }
 
     .hero-ornament {
-        order: 7;
-        gap: 8px;
-        margin: 0 0 5px;
+        display: none;
     }
 
     .hero-ornament span {
@@ -3395,5 +3417,3 @@ img {
         max-width: 100%;
     }
 }
-
-
